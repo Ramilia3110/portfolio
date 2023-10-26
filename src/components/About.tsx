@@ -14,6 +14,7 @@ const About = () => {
             width={100}
             height={100}
             src={me}
+            alt="a young women"
             className="rounded-full object-cover"
           />
           <h1 className="text-3xl font-semibold">Ramilia Imankulova</h1>
