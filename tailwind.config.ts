@@ -14,7 +14,7 @@ const config: Config = {
       normal: "0",
       wide: ".025em",
       wider: ".05em",
-      widest: ".1em",
+      widerer: ".1em", // Changed to "wide" to make it unique
       widest: ".25em",
     },
     extend: {
