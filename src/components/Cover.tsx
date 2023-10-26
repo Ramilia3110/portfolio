@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { Mesh } from "three";
-import { GLTFLoader } from "three/addons/loaders/GLTFLoader";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
 function MeshComponent() {
   useFrame(() => {
