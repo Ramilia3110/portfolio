@@ -14,7 +14,7 @@ const MatrixBg: React.FC = () => {
         let columns = Math.floor(width / 12);
         const characters = "abcdefghijklmnopqrstuvwxyz1234567890";
         const charArray = characters.split("");
-        let drops = [];
+        let drops: number[] = []; // Specify the type as an array of numbers
 
         for (let i = 0; i < columns; i++) {
           drops[i] = 1;
