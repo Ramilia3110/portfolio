@@ -1,0 +1,83 @@
+@import "../../App.scss";
+.contact {
+  overflow: hidden;
+  height: 100vh;
+  max-width: 1366px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  @include mobile {
+    width: 100%;
+    padding: 1rem;
+    flex-direction: column;
+  }
+  .textContainer {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include mobile {
+      text-align: center;
+      margin: 7rem;
+    }
+
+    h1 {
+      font-size: 7rem;
+      line-height: 8rem;
+      text-align: center;
+      @include mobile {
+        font-size: 4.5rem;
+      }
+    }
+  }
+  .formContainer {
+    position: relative;
+
+    flex: 1;
+    @include mobile {
+      width: 100%;
+      padding: 5rem 1rem;
+    }
+
+    .mailSvg {
+      width: 90%;
+      margin: auto;
+      position: absolute;
+      z-index: -1;
+      @include mobile {
+      }
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      input,
+      textarea {
+        padding: 2rem;
+        background-color: transparent;
+        border: 1px solid white;
+        color: white;
+        border-radius: 0.5rem;
+        @include mobile {
+          padding: 1rem;
+        }
+      }
+      button {
+        padding: 2rem;
+        border: none;
+        background-color: orange;
+        cursor: pointer;
+        font-weight: 600;
+        border-radius: 0.5rem;
+        @include mobile {
+          padding: 1rem;
+        }
+      }
+    }
+  }
+}

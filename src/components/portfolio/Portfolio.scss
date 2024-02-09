@@ -1,0 +1,89 @@
+@import "../../App.scss";
+.portfolio {
+  position: relative;
+  .progress {
+    position: sticky;
+    top: 0;
+    left: 0;
+    padding-top: 5rem;
+    text-align: center;
+    font-size: 3.5rem;
+    color: orange;
+    @include mobile {
+      padding-top: calc(100vh - 10rem);
+      font-size: 2.2rem;
+    }
+    .progressBar {
+      height: 0.5rem;
+      background-color: white;
+    }
+  }
+  .container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .wrapper {
+    max-width: 1366px;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+    justify-content: center;
+    @include mobile {
+      flex-direction: column;
+    }
+
+    .portfolio-img {
+      flex: 1;
+      height: 50%;
+      @include mobile {
+        width: 100%;
+        max-height: 30rem;
+        img {
+          object-position: top;
+          @include mobile {
+            object-fit: contain;
+          }
+        }
+      }
+    }
+    .textContainer {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      @include mobile {
+        transform: none !important;
+        padding: 1rem;
+        align-items: center;
+      }
+      h2 {
+        font-size: 7.2rem;
+        @include mobile {
+          font-size: 3.8rem;
+        }
+      }
+      p {
+        color: gray;
+        font-size: 2rem;
+        @include mobile {
+          font-size: 1.6rem;
+        }
+      }
+      button {
+        background-color: orange;
+        border: none;
+        border-radius: 1rem;
+        padding: 1rem;
+        width: 20rem;
+        cursor: pointer;
+        outline: none;
+      }
+    }
+  }
+}
