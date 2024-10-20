@@ -47,7 +47,7 @@ const Hero = () => {
           {/* Social Media Icons */}
           <div className={s.social}>
             <motion.a
-              href="https://github.com/your-github-username"
+              href="https://github.com/Ramilia3110"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
@@ -56,7 +56,7 @@ const Hero = () => {
             >
               <FaGithub className={s.social_icon} />
             </motion.a>
-            <motion.a
+            {/* <motion.a
               href="https://instagram.com/your-instagram-username"
               target="_blank"
               rel="noopener noreferrer"
@@ -65,9 +65,9 @@ const Hero = () => {
               whileTap={{ scale: 0.9 }}
             >
               <FaInstagram className={s.social_icon} />
-            </motion.a>
+            </motion.a> */}
             <motion.a
-              href="https://linkedin.com/in/your-linkedin-username"
+              href="https://www.linkedin.com/in/ramilia-imankulova-88825415b/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
