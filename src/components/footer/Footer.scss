@@ -1,0 +1,34 @@
+.footer {
+  background-color: #282c34; // Dark background for the footer
+  color: white; // White text for contrast
+  padding: 2rem 0; // Top and bottom padding
+  text-align: center; // Center-align text
+
+  .footer-content {
+    max-width: 1200px; // Limit the width for larger screens
+    margin: 0 auto; // Center the footer content
+    padding: 0 1rem; // Add horizontal padding
+
+    p {
+      margin: 0; // Remove margin from the paragraph
+      font-size: 1.2rem; // Font size for copyright text
+    }
+
+    .social-links {
+      margin-top: 1rem; // Add space above the social links
+      display: flex; // Flexbox for horizontal alignment
+      justify-content: center; // Center the links
+      gap: 1.5rem; // Space between links
+
+      a {
+        color: white; // White text for links
+        text-decoration: none; // Remove underline
+        transition: color 0.3s; // Smooth transition for hover effect
+
+        &:hover {
+          color: #ff5722; // Change color on hover
+        }
+      }
+    }
+  }
+}

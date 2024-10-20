@@ -1,0 +1,65 @@
+.running_icons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  padding: 10rem 0;
+
+  .icon_row {
+    display: flex;
+    width: max-content;
+    background-color: transparent;
+
+    .ball {
+      width: 6rem; /* Ball size */
+      height: 6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      margin: 0 2rem;
+      border-radius: 50%; /* Circular shape */
+      background: rgb(255, 255, 255);
+      background: linear-gradient(
+        0deg,
+        rgba(255, 136, 197, 0.246) 0%,
+        rgb(220, 243, 251) 100%
+      );
+      background-color: #fff; /* White background for icons */
+      box-shadow: 10px 10px 70px rgba(0, 0, 0, 0.01),
+        inset 5px 5px 20px rgba($color: #7ec7f4f8, $alpha: 0.25),
+        inset -5px -5px 15px rgba(48, 46, 46, 0.75); /* 3D effect */
+      animation: runIcons 15s linear infinite; /* Running animation */
+      transition: transform 0.3s ease-in-out;
+
+      &:hover svg {
+        transform: translateY(-10px) scale(1.1); /* Adds depth on hover */
+      }
+
+      svg {
+        font-size: 2.5rem; /* Size of the icons inside the balls */
+      }
+
+      @media (min-width: 768px) {
+        width: 7rem;
+        height: 7rem;
+
+        svg {
+          font-size: 3.5rem;
+        }
+      }
+    }
+  }
+}
+
+@keyframes runIcons {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

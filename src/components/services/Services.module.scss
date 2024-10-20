@@ -1,0 +1,107 @@
+.services {
+  width: 85%;
+  margin: 0 auto;
+  padding: 5rem 0;
+
+  @media (max-width: 768px) {
+    width: 95%;
+    padding: 3rem 0;
+  }
+
+  .title {
+    font-size: 4rem;
+    padding: 5rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    font-size: 5rem;
+    color: orange;
+  }
+}
+
+.services_container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+
+  @media (max-width: 1024px) {
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.service_card {
+  position: relative;
+  padding: 3rem;
+  box-shadow: 15px 15px 55px rgba($color: #000000, $alpha: 0.25),
+    10px 10px 70px rgba($color: #000000, $alpha: 0.25),
+    inset 5px 5px 20px rgba($color: #ffffff, $alpha: 0.25),
+    inset -5px -5px 15px rgba($color: #000000, $alpha: 0.75);
+  background-color: #3178c6;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 1.2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  color: #ffffff;
+  &:hover {
+    transform: translateY(-20px);
+    background-color: #ffffff;
+    color: #000;
+  }
+
+  .icon {
+    font-size: 3rem;
+
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+    }
+
+    @media (max-width: 600px) {
+      font-size: 2rem;
+    }
+  }
+
+  .service_title {
+    font-size: 2.3rem;
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      font-size: 1.8rem;
+    }
+  }
+
+  .description {
+    padding: 3rem 2rem;
+    font-size: 1.8rem;
+    width: 30rem;
+
+    @media (max-width: 768px) {
+      padding: 2rem 1.5rem;
+      font-size: 1.6rem;
+    }
+
+    @media (max-width: 600px) {
+      padding: 1.5rem 1rem;
+      font-size: 1.4rem;
+    }
+  }
+}

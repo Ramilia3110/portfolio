@@ -2,31 +2,38 @@ import { useState } from "react";
 import "./App.scss";
 import Navbar from "./components/navbar/Navbar";
 import Hero from "./components/hero/Hero";
-import Parallax from "./components/parallax/Parallax";
-import Services from "./components/services/Services";
+
 import Portfolio from "./components/portfolio/Portfolio";
-import Contact from "./components/contact/Contact";
+
+import Services from "./components/services/Services";
+import Skills from "./components/skills/Skills";
+import Toolicons from "./components/toolicons/Toolicons";
+import About from "./components/about/About";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
     <>
+      <Navbar />
       <section id="homepage">
-        <Navbar />
         <Hero />
       </section>
-      <section id="services">
-        <Parallax type="services" />
-      </section>
-      <section>
-        <Services />
+      <section id="about">
+        <About />
       </section>
       <section id="portfolio">
-        <Parallax type="portfolio" />
+        <Portfolio />
       </section>
-      <Portfolio />
-      <section id="contact">
-        <Contact />
+      <Toolicons />
+      <section id="skills">
+        <Skills />
       </section>
+
+      <section id="services">
+        <Services />
+      </section>
+
+      <Footer />
     </>
   );
 }

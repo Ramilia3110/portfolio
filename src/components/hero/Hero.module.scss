@@ -1,0 +1,170 @@
+.hero {
+  width: 90%;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100vh;
+
+  .hero_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 2rem;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+  }
+
+  .hero_text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+
+    h3 {
+      font-size: 2.5rem;
+      color: #3178c6;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+    }
+
+    h5 {
+      font-size: 2.3rem;
+      color: #fffb96;
+      animation: animateText 2s infinite;
+    }
+
+    p {
+      font-size: 1.6rem;
+      max-width: 40rem;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      text-align: left;
+      align-items: flex-start;
+      padding-right: 2rem;
+
+      h3 {
+        font-size: 3rem;
+      }
+
+      h1 {
+        font-size: 4rem;
+      }
+
+      h5 {
+        font-size: 2.5rem;
+      }
+
+      p {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .downloadCV {
+    margin-top: 1rem;
+    padding: 1.5rem 2rem;
+    box-shadow: 15px 15px 55px rgba($color: #000000, $alpha: 0.25),
+      10px 10px 70px rgba($color: #000000, $alpha: 0.25),
+      inset 5px 5px 20px rgba($color: #ffffff, $alpha: 0.25),
+      inset -5px -5px 15px rgba($color: #000000, $alpha: 0.55);
+    background-color: #3178c6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover {
+      background-color: #285e8e;
+    }
+  }
+
+  .images {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero_img {
+    width: 25rem;
+    height: 25rem;
+    border-radius: 50%;
+    background-image: url("../../assets/hero.png");
+    background-size: cover;
+    background-color: #b9d9f3;
+    background-position: center center;
+    z-index: 1;
+    position: relative;
+    margin-bottom: 3rem;
+    overflow: hidden;
+    animation: animate 5s ease-in-out infinite;
+    transition: all 1s ease-in-out;
+
+    @media (min-width: 768px) {
+      width: 30rem;
+      height: 30rem;
+    }
+  }
+
+  .social {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    a {
+      font-size: 2rem;
+      color: #333;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #0077b5;
+      }
+    }
+  }
+
+  .social_icon {
+    color: #333;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #0077b5;
+    }
+  }
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+}
+
+@keyframes animateText {
+  0%,
+  100% {
+    color: orange;
+  }
+  50% {
+    color: #3178c6;
+  }
+}

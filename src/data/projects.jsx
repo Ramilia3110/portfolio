@@ -1,7 +1,8 @@
 import p1 from "./../assets/p1.jpg";
-import p2 from "./../assets/p2.jpg";
-
+import p2 from "./../assets/p2.png";
+import p4 from "./../assets/p4.png";
 import p3 from "./../assets/p3.jpg";
+import p5 from "./../assets/p5.png";
 export const projects = [
   {
     id: 1,
@@ -11,8 +12,25 @@ export const projects = [
     url: "https://candies-shop-8b353.web.app",
     img: p2,
   },
+
   {
     id: 2,
+    title: "Job Search App",
+    description:
+      "The Job Search app is a a responsive platform that allows users to search and filter jobs by criteria like title, company, location, type, and level, using React, Redux, Tailwind CSS, and Framer Motion for seamless animations",
+    url: "https://journeymakers.netlify.app",
+    img: p5,
+  },
+  {
+    id: 3,
+    title: "Barcozy",
+    description:
+      "The cocktail search app is a React-based application that utilizes Axios for fetching cocktail data with query parameters, enhanced by Framer Motion animations for a smooth user experience. ",
+    url: "https://barcozy.netlify.app/",
+    img: p4,
+  },
+  {
+    id: 4,
     title: "Journey Makers",
     description:
       "A travel agency website developed using React JS, SCSS, and TypeScript combines modern web technologies to deliver a professional and interactive user experience, ensuring a seamless and visually appealing platform for travelers.",
@@ -20,7 +38,7 @@ export const projects = [
     img: p1,
   },
   {
-    id: 3,
+    id: 5,
     title: "Uncle Meal",
     description:
       "A restaurant website built with React JS and TypeScript provides a dynamic and responsive platform for showcasing your menu and attracting customers. ",

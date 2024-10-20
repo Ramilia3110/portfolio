@@ -1,0 +1,127 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0.5rem;
+  color: #2b2a2a;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 100;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  .container {
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #2c6cb0;
+      @media (max-width: 768px) {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .links {
+    display: flex;
+    gap: 2rem;
+
+    a {
+      color: #2b2a2a;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      transition: color 0.3s ease, transform 0.3s ease;
+      font-size: 1.7rem;
+      position: relative;
+
+      &:hover {
+        color: orange;
+      }
+
+      svg {
+        margin-right: 0.5rem;
+      }
+
+      &.active {
+        color: orange;
+
+        &::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 2px;
+          background-color: orange;
+          bottom: -5px;
+          left: 0;
+        }
+      }
+
+      @media (max-width: 768px) {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+
+    span {
+      height: 2px;
+      width: 20px;
+      background: #333;
+      margin: 4px 0;
+      transition: all 0.3s ease;
+    }
+
+    &.open span {
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      background: radial-gradient(90deg, #f694c8, #d5e7faef, #7ec7f4f8);
+      width: 100%;
+      z-index: 1;
+
+      &.mobile {
+        display: flex;
+      }
+
+      a {
+        padding: 1rem;
+        border-bottom: 1px solid #444;
+      }
+    }
+
+    .hamburger {
+      display: flex;
+    }
+  }
+}

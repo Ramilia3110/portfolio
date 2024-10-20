@@ -1,16 +1,33 @@
-html {
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-  font-size: 62.5%;
-}
-* {
+*,
+::after,
+::before {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+html {
+  // scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+  box-sizing: inherit;
+}
+
 body {
-  background-color: #0b0b0b;
-  color: lightgrey;
+  // background-image: linear-gradient(
+  //   to right,
+  //   #fff,
+  //   #7938fa36,
+  //   #fe067e2d,
+  //   #07cdf92f
+  // );
+  background-image: radial-gradient(
+    circle,
+    #f694c8,
+    #d5e7faef,
+    #0661fe2d,
+    #7ec7f4f8
+  );
+  color: rgb(31, 30, 30);
 }
 a {
   text-decoration: none;
@@ -23,9 +40,7 @@ img {
 }
 
 section {
-  min-height: 100vh;
   scroll-snap-align: center;
-  width: 100%;
 }
 
 @mixin mobile {
