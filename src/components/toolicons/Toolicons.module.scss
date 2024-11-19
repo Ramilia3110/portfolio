@@ -3,63 +3,131 @@
   display: flex;
   justify-content: center;
   overflow: hidden;
-  padding: 10rem 0;
+  padding: 5rem 0;
+  position: relative;
 
   .icon_row {
     display: flex;
     width: max-content;
-    background-color: transparent;
+    position: relative;
 
     .ball {
-      width: 6rem; /* Ball size */
-      height: 6rem;
+      width: 7rem; 
+      height: 7rem;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      margin: 0 2rem;
-      border-radius: 50%; /* Circular shape */
-      background: rgb(255, 255, 255);
-      background: linear-gradient(
-        0deg,
-        rgba(255, 136, 197, 0.246) 0%,
-        rgb(220, 243, 251) 100%
-      );
-      background-color: #fff; /* White background for icons */
-      box-shadow: 10px 10px 70px rgba(0, 0, 0, 0.01),
-        inset 5px 5px 20px rgba($color: #7ec7f4f8, $alpha: 0.25),
-        inset -5px -5px 15px rgba(48, 46, 46, 0.75); /* 3D effect */
-      animation: runIcons 15s linear infinite; /* Running animation */
+      margin: 0 1.5rem; 
+      border-radius: 50%; 
+      background: rgba(255, 255, 255, 0.2); 
+      backdrop-filter: blur(8px); 
+      -webkit-backdrop-filter: blur(8px); 
+      box-shadow: 
+        0 4px 6px rgba(0, 0, 0, 0.1), 
+        inset 2px 2px 4px rgba(255, 255, 255, 0.6), 
+        inset -2px -2px 4px rgba(0, 0, 0, 0.2); 
       transition: transform 0.3s ease-in-out;
 
-      &:hover svg {
-        transform: translateY(-10px) scale(1.1); /* Adds depth on hover */
+      &:hover {
+        transform: scale(1.1); 
       }
 
       svg {
-        font-size: 2.5rem; /* Size of the icons inside the balls */
+        font-size: 3rem; 
+        color: #fff;
+        transition: transform 0.3s ease, color 0.3s ease;
       }
 
-      @media (min-width: 768px) {
-        width: 7rem;
-        height: 7rem;
-
-        svg {
-          font-size: 3.5rem;
-        }
+      &:hover svg {
+        transform: scale(1.2); 
+        color: orange; 
       }
     }
   }
-}
 
-@keyframes runIcons {
-  0% {
-    transform: translateX(-100%);
+  /* Wave Animation */
+  @keyframes waveMotionLeftRight {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(15px);
+    }
+    50% {
+      transform: translateX(-15px); 
+    }
+    75% {
+      transform: translateX(15px); 
+    }
+    100% {
+      transform: translateX(0); 
+    }
   }
-  50% {
-    transform: translateX(100%);
+
+  /* Applying staggered animation to the balls */
+  .ball {
+    animation: waveMotionLeftRight 9s ease-in-out infinite;
   }
-  100% {
-    transform: translateX(-100%);
+
+  .ball:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  .ball:nth-child(2) {
+    animation-delay: 0.3s;
+  }
+
+  .ball:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+
+  .ball:nth-child(4) {
+    animation-delay: 0.9s;
+  }
+
+  .ball:nth-child(5) {
+    animation-delay: 1.2s;
+  }
+
+  .ball:nth-child(6) {
+    animation-delay: 1.5s;
+  }
+
+  .ball:nth-child(7) {
+    animation-delay: 1.8s;
+  }
+
+  .ball:nth-child(8) {
+    animation-delay: 2.1s;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .icon_row .ball {
+      width: 4rem; 
+      height: 4rem;
+      margin: 0 1rem;
+      svg {
+        font-size: 1.5rem; 
+      }
+
+      
+    }
+  }
+
+  @media (max-width: 480px) {
+    .icon_row .ball {
+      width: 3rem; 
+      height: 3rem;
+      margin: 0 0.5rem; 
+      svg {
+        font-size: 1rem;
+      }
+
+      
+    }
+
+    padding: 3rem 0; 
   }
 }

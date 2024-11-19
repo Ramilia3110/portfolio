@@ -18,7 +18,7 @@ export const projects = [
     title: "Job Search App",
     description:
       "The Job Search app is a a responsive platform that allows users to search and filter jobs by criteria like title, company, location, type, and level, using React, Redux, Tailwind CSS, and Framer Motion for seamless animations",
-    url: "https://journeymakers.netlify.app",
+    url: "https://jobsearchappjobs.netlify.app/",
     img: p5,
   },
   {

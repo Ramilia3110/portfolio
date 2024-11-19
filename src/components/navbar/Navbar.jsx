@@ -13,23 +13,16 @@ const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [activeLink, setActiveLink] = useState("#homepage");
 
-  const handleToggle = () => {
-    setIsMobile(!isMobile);
-  };
+  const handleToggle = () => setIsMobile((prev) => !prev);
 
   const handleScroll = () => {
-    const sections = [
-      "#homepage",
-      "#about",
-      "#portfolio",
-      "#skills",
-      "#services",
-    ];
-    const scrollPosition = window.scrollY + 100; // Offset for the navbar height
+    const sections = ["#homepage", "#about", "#portfolio", "#skills", "#services"];
+    const scrollPosition = window.scrollY + 100; // Offset for navbar height
 
     sections.forEach((section) => {
       const element = document.querySelector(section);
       if (
+        element &&
         element.offsetTop <= scrollPosition &&
         element.offsetTop + element.offsetHeight > scrollPosition
       ) {
@@ -50,54 +43,42 @@ const Navbar = () => {
       className={s.navbar}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.8 }}
+      exit={{ y: -100 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
     >
       <div className={s.container}>
         <div className={s.logo}>
           <h1>Ramilia's Portfolio</h1>
         </div>
         <div className={`${s.links} ${isMobile ? s.mobile : ""}`}>
-          <a
-            href="#homepage"
-            className={activeLink === "#homepage" ? s.active : ""}
-            onClick={handleToggle}
-          >
-            <FaHome /> Home
-          </a>
-          <a
-            href="#about"
-            className={activeLink === "#about" ? s.active : ""}
-            onClick={handleToggle}
-          >
-            <FaUser /> About
-          </a>
-          <a
-            href="#portfolio"
-            className={activeLink === "#portfolio" ? s.active : ""}
-            onClick={handleToggle}
-          >
-            <FaSuitcase /> Portfolio
-          </a>
-          <a
-            href="#skills"
-            className={activeLink === "#skills" ? s.active : ""}
-            onClick={handleToggle}
-          >
-            <FaTools /> Skills
-          </a>
-          <a
-            href="#services"
-            className={activeLink === "#services" ? s.active : ""}
-            onClick={handleToggle}
-          >
-            <FaEnvelope /> Services
-          </a>
+          {[
+            { href: "#homepage", icon: <FaHome />, label: "Home" },
+            { href: "#about", icon: <FaUser />, label: "About" },
+            { href: "#portfolio", icon: <FaSuitcase />, label: "Portfolio" },
+            { href: "#skills", icon: <FaTools />, label: "Skills" },
+            { href: "#services", icon: <FaEnvelope />, label: "Services" },
+          ].map(({ href, icon, label }) => (
+            <a
+              key={href}
+              href={href}
+              className={activeLink === href ? s.active : ""}
+              onClick={() => {
+                setIsMobile(false);
+                setActiveLink(href);
+              }}
+            >
+              {icon} {label}
+            </a>
+          ))}
         </div>
-      </div>
-      <div className={s.hamburger} onClick={handleToggle}>
-        <span className={isMobile ? s.open : ""}></span>
-        <span className={isMobile ? s.open : ""}></span>
-        <span className={isMobile ? s.open : ""}></span>
+        <div
+          className={`${s.hamburger} ${isMobile ? s.open : ""}`}
+          onClick={handleToggle}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
     </motion.nav>
   );
