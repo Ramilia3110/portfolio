@@ -10,19 +10,29 @@
     position: sticky;
     top: 0;
     left: 0;
-    padding-top: 2rem; // Reduced padding for mobile
+    z-index: 10;
+    padding-top: 4rem;
     text-align: center;
     font-size: 3.5rem;
-    color: orange;
+    color: #ff6347;
+    background-color: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 10rem;
 
-    @include mobile {
-      padding-top: 1rem; // Further reduced padding for mobile
-      font-size: 2.2rem;
+    &.scrolled {
+      background-color: rgba(#3178c6, 0.5);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 6px 40px rgba(0, 0, 0, 0.3);
+      color: white;
     }
 
-    .progressBar {
-      height: 0.5rem;
-      background-color: white;
+    @include mobile {
+      font-size: 2.2rem;
+      padding: 5rem 1rem 1rem;
+      width: 70%;
     }
   }
 
@@ -114,7 +124,7 @@
       }
 
       button {
-        background-color: orange;
+        background-color: #ff6347;
         border: none;
         border-radius: 1rem;
         padding: 1rem;
