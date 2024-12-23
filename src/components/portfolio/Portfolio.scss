@@ -16,15 +16,13 @@
     font-size: 3.5rem;
     color: #ff6347;
     background-color: transparent;
-    transition: background-color 0.3s ease, color 0.3s ease;
     width: 50%;
     margin: 0 auto;
     border-radius: 10rem;
+    will-change: background-color, transform;
 
     &.scrolled {
-      background-color: rgba(#3178c6, 0.5);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(10px);
+      background-color: rgba(49, 120, 198, 0.8);
       box-shadow: 0 6px 40px rgba(0, 0, 0, 0.3);
       color: white;
     }
@@ -38,22 +36,22 @@
 
   .container {
     width: 100%;
-    height: auto; // Set to auto to accommodate content dynamically
+    height: auto;
     display: flex;
-    align-items: flex-start; // Adjusted for better layout
+    align-items: flex-start;
     justify-content: center;
     overflow: hidden;
-    padding-top: 2rem; // Added padding to ensure top space consistency
+    padding-top: 2rem;
 
     @include mobile {
-      padding-top: 1rem; // Reduced padding for mobile
+      padding-top: 1rem;
     }
   }
 
   .wrapper {
     padding: 10rem 0;
     max-width: 1366px;
-    height: auto; // Set to auto for responsive height
+    height: auto;
     margin: auto;
     display: flex;
     gap: 3rem;
@@ -64,14 +62,14 @@
     @include mobile {
       padding: 2rem 0;
       flex-direction: column;
-      gap: 2rem; // Reduced gap for mobile layout
+      gap: 2rem;
     }
 
     .portfolio-img {
       flex: 1;
       border-radius: 2rem;
-      height: auto; // Set to auto to adapt to the content
-      max-width: 100%; // Ensure it scales correctly
+      height: auto;
+      max-width: 100%;
       img {
         object-fit: cover;
         object-position: top;
@@ -85,9 +83,9 @@
 
       @include mobile {
         width: 100%;
-        max-height: 30rem; // Adjusted max height for mobile
+        max-height: 30rem;
         img {
-          object-fit: contain; // Ensures full image is visible on mobile
+          object-fit: contain;
         }
       }
     }
@@ -99,7 +97,7 @@
       gap: 3rem;
 
       @include mobile {
-        gap: 2rem; // Reduced gap for mobile
+        gap: 2rem;
         padding: 1rem;
         align-items: center;
       }
@@ -108,8 +106,8 @@
         font-size: 7.2rem;
 
         @include mobile {
-          font-size: 3.8rem; // Adjusted font size for mobile
-          text-align: center; // Center text for better alignment on mobile
+          font-size: 3.8rem;
+          text-align: center;
         }
       }
 
@@ -118,8 +116,8 @@
         font-size: 2rem;
 
         @include mobile {
-          font-size: 1.6rem; // Adjusted font size for mobile
-          text-align: center; // Centered paragraph text
+          font-size: 1.6rem;
+          text-align: center;
         }
       }
 
@@ -128,15 +126,18 @@
         border: none;
         border-radius: 1rem;
         padding: 1rem;
-        width: 100%; // Set to 100% width on mobile for better responsiveness
-        max-width: 20rem; // Ensures button doesn't stretch too much
+        width: 100%;
+        max-width: 20rem;
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: #fff;
         cursor: pointer;
         outline: none;
         &:hover {
-          background-color: pink;
+          background-color: #c03b24;
         }
         @include mobile {
-          max-width: 100%; // Ensure full width on mobile
+          max-width: 100%;
         }
       }
     }

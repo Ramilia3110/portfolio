@@ -42,13 +42,27 @@ const Services = () => {
           <motion.div
             className={s.service_card}
             key={index}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.2 }}
           >
-            <div className={s.icon}>{service.icon}</div>
+            <motion.div
+              className={s.icon}
+              whileHover={{ scale: 1.3, rotate: 15 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              {service.icon}
+            </motion.div>
             <h3 className={s.service_title}>{service.title}</h3>
             <p className={s.description}>{service.description}</p>
+            <motion.button
+              className={s.cta_button}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Learn More
+            </motion.button>
           </motion.div>
         ))}
       </div>

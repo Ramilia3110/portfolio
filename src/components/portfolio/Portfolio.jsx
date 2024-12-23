@@ -22,7 +22,7 @@ const Portfolio = () => {
   useEffect(() => {
     const handleScroll = () => {
       const progressTop = progressRef.current?.getBoundingClientRect().top || 0;
-      setIsAtTop(progressTop <= 0); // Check if `.progress` is at the top of the viewport
+      requestAnimationFrame(() => setIsAtTop(progressTop <= 0)); // Debounce the update
     };
 
     window.addEventListener("scroll", handleScroll);

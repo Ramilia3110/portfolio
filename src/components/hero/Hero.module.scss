@@ -105,7 +105,7 @@
     animation: fadeInUp 2.5s ease-out;
 
     a {
-      font-size: 1.8rem;
+      font-size: 3rem;
       color: #333;
       transition: color 0.3s ease;
 
@@ -118,7 +118,9 @@
   .hero_img {
     width: 20rem;
     height: 20rem;
+
     background: url("../../assets/hero.png") center / cover no-repeat;
+    background-color: #ff6347;
     border-radius: 50%;
     animation: morph 4s ease-in-out infinite, fadeInUp 2.5s ease-out;
 
