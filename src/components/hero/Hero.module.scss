@@ -44,12 +44,15 @@
 
     h5 {
       font-size: 5rem;
-      color: #ff6347;
+      background: linear-gradient(135deg, #3178c6, #ff6347, #7b5bf1, #3178c6);
+      background-size: 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: typing 4s steps(30) 1s 1 normal forwards,
+        cursor 0.6s steps(18) infinite, gradientMove 6s infinite linear;
       letter-spacing: 0.1rem;
-      overflow: hidden;
       white-space: nowrap;
-      animation: typing 2s 2s steps(18),
-        cursor 0.4s 2s step-end infinite alternate;
+      overflow: hidden;
     }
 
     p {
@@ -195,5 +198,17 @@
   }
   50% {
     border-radius: 30%;
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
