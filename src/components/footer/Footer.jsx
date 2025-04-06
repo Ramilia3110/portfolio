@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <p>© 2024 Ramilia Imankulova. All Rights Reserved.</p>
+        <p>© 2025 Ramilia Imankulova. All Rights Reserved.</p>
         <div className="social-links">
           <a
             href="https://github.com/your-github"

@@ -20,7 +20,7 @@
 
   .logo h1 {
     font-size: 2.5rem;
-    color: #2c6cb0;
+    color: #3943b7;
     font-weight: bold;
     cursor: pointer;
   }
@@ -44,14 +44,14 @@
 
       &:hover,
       &.active {
-        color: #ff6347;
+        color: #bc790e;
 
         &::after {
           content: "";
           position: absolute;
           width: 100%;
           height: 2px;
-          background: #ff6347;
+          background: #bc790e;
           bottom: -5px;
           left: 0;
         }

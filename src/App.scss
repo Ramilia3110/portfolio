@@ -1,3 +1,6 @@
+@import "./scss/vars";
+@import "./scss/mixin";
+
 @import url("https://fonts.googleapis.com/css2?family=Allura&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@200;300;400;600;800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 *,
 ::after,
@@ -23,13 +26,14 @@ body {
   //   #fe067e2d,
   //   #07cdf92f
   // );
-  background-image: radial-gradient(
-    circle,
-    #f694c8,
-    #d5e7faef,
-    #0661fe2d,
-    #7ec7f4f8
-  );
+  // background-image: radial-gradient(
+  //   circle,
+  //   #f694c8,
+  //   #d5e7faef,
+  //   #0661fe2d,
+  //   #7ec7f4f8
+  // );
+  background-color: #fff;
   color: rgb(31, 30, 30);
 }
 a {
