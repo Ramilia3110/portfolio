@@ -155,26 +155,9 @@
 /* Responsive Styles */
 @media (max-width: 768px) {
   .tablet {
-    width: 90vw;
-    height: 60vh;
-  }
+  display: none;
 
-  .screen {
-    width: 90%;
-    height: 85%;
-  }
-
-  .screen1,
-  .screen2 {
-    width: 65%;
-    height: 50%;
-  }
-
-  .screen3,
-  .screen4 {
-    width: 35%;
-    height: 50%;
-  }
+  
 }
 .screen3 {
   display: flex;
