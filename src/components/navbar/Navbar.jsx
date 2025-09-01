@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from "react";
-import {
-  FaHome,
-  FaUser,
-  FaSuitcase,
-  FaTools,
-  FaEnvelope,
-} from "react-icons/fa";
+import { FaHome, FaUser, FaSuitcase, FaTools } from "react-icons/fa";
+import { MdHomeRepairService } from "react-icons/md";
 import s from "./Navbar.module.scss";
 import { motion } from "framer-motion";
 
@@ -62,7 +57,11 @@ const Navbar = () => {
             { href: "#about", icon: <FaUser />, label: "About" },
             { href: "#portfolio", icon: <FaSuitcase />, label: "Portfolio" },
             { href: "#skills", icon: <FaTools />, label: "Skills" },
-            { href: "#services", icon: <FaEnvelope />, label: "Services" },
+            {
+              href: "#services",
+              icon: <MdHomeRepairService />,
+              label: "Services",
+            },
           ].map(({ href, icon, label }) => (
             <a
               key={href}
