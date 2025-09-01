@@ -12,16 +12,17 @@ This site highlights my journey from raw data → insights → dashboards → bu
 ### 💻 Website
 
 ![Portfolio Preview](https://github.com/Ramilia3110/portfolio/blob/main/src/assets/cover.png)
-![Portfolio Preview](https://github.com/Ramilia3110/portfolio/blob/main/src/assets/cover.png)
 
 ### 📊 Dashboards & Projects
 
-| Project                       | Screenshot                                                                           |
-| ----------------------------- | ------------------------------------------------------------------------------------ |
-| Air Quality & Life Expectancy | ![Air Quality](https://github.com/Ramilia3110/portfolio/blob/main/src/assets/bg.jpg) |
-| Logistics SQL + Tableau       | ![Logistics](https://github.com/Ramilia3110/portfolio/blob/main/src/assets/p2.jpg)   |
-| Grocery Sales Excel Dashboard | ![Grocery](https://github.com/Ramilia3110/portfolio/blob/main/src/assets/p1.jpg)     |
-| Netflix Global Expansion      | ![Netflix](https://github.com/Ramilia3110/portfolio/blob/main/src/assets/p3.jpg)     |
+| Project                       | Screenshot                                                                                                                                                                   |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Air Quality & Life Expectancy | ![Air Quality](https://github.com/Ramilia3110/portfolio/blob/main/src/assets/bg.jpg) ![Air Quality](https://github.com/Ramilia3110/portfolio/blob/main/src/assets/keys.png)  |
+| Logistics SQL + Tableau       | ![Logistics](https://github.com/Ramilia3110/portfolio/blob/main/src/assets/p2.jpg) ![Logistics](https://github.com/Ramilia3110/portfolio/blob/main/src/assets/dashboard.png) |
+
+|
+| Grocery Sales Excel Dashboard | ![Grocery](https://github.com/Ramilia3110/portfolio/blob/main/src/assets/p1.jpg) ![Grocery](https://github.com/Ramilia3110/portfolio/blob/main/src/assets/grocery.png)|
+| Netflix Global Expansion | ![Netflix](https://github.com/Ramilia3110/portfolio/blob/main/src/assets/p3.jpg) ![Netflix](https://github.com/Ramilia3110/portfolio/blob/main/src/assets/netflix.png) |
 
 ---
 
