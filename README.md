@@ -11,7 +11,8 @@ This site highlights my journey from raw data → insights → dashboards → bu
 
 ### 💻 Website
 
-![Portfolio Preview](https://github.com/Ramilia3110/portfolio/blob/main/src/assets/h.png)
+![Portfolio Preview](https://github.com/Ramilia3110/portfolio/blob/main/src/assets/cover.png)
+![Portfolio Preview](https://github.com/Ramilia3110/portfolio/blob/main/src/assets/cover.png)
 
 ### 📊 Dashboards & Projects
 
