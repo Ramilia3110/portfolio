@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import styles from "./Header.module.scss";
 import { FaGithub, FaLinkedin, FaFileAlt } from "react-icons/fa";
-import pic from "../../assets/hero.png";
+import pic from "../../assets/hero.jpg";
 
 const Header = () => {
   return (
