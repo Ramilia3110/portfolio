@@ -12,36 +12,35 @@
     position: relative;
 
     .ball {
-      width: 7rem; 
+      width: 7rem;
       height: 7rem;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      margin: 0 1.5rem; 
-      border-radius: 50%; 
-      background: rgba(255, 255, 255, 0.2); 
-      backdrop-filter: blur(8px); 
-      -webkit-backdrop-filter: blur(8px); 
-      box-shadow: 
-        0 4px 6px rgba(0, 0, 0, 0.1), 
-        inset 2px 2px 4px rgba(255, 255, 255, 0.6), 
-        inset -2px -2px 4px rgba(0, 0, 0, 0.2); 
+      margin: 0 1.5rem;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
+        inset 2px 2px 4px rgba(255, 255, 255, 0.6),
+        inset -2px -2px 4px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s ease-in-out;
 
       &:hover {
-        transform: scale(1.1); 
+        transform: scale(1.1);
       }
 
       svg {
-        font-size: 3rem; 
+        font-size: 3rem;
         color: #fff;
         transition: transform 0.3s ease, color 0.3s ease;
       }
 
       &:hover svg {
-        transform: scale(1.2); 
-        color: orange; 
+        transform: scale(1.2);
+        color: orange;
       }
     }
   }
@@ -55,13 +54,13 @@
       transform: translateX(15px);
     }
     50% {
-      transform: translateX(-15px); 
+      transform: translateX(-15px);
     }
     75% {
-      transform: translateX(15px); 
+      transform: translateX(15px);
     }
     100% {
-      transform: translateX(0); 
+      transform: translateX(0);
     }
   }
 
@@ -105,29 +104,25 @@
   /* Responsive Design */
   @media (max-width: 768px) {
     .icon_row .ball {
-      width: 4rem; 
+      width: 4rem;
       height: 4rem;
       margin: 0 1rem;
       svg {
-        font-size: 1.5rem; 
+        font-size: 1.5rem;
       }
-
-      
     }
   }
 
   @media (max-width: 480px) {
     .icon_row .ball {
-      width: 3rem; 
+      width: 3rem;
       height: 3rem;
-      margin: 0 0.5rem; 
+      margin: 0 0.5rem;
       svg {
         font-size: 1rem;
       }
-
-      
     }
 
-    padding: 3rem 0; 
+    padding: 3rem 0;
   }
 }

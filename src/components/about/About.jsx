@@ -1,8 +1,7 @@
-import React from "react";
 import { motion } from "framer-motion";
 import s from "./About.module.scss";
 import beforeImage from "../../assets/d3.jpg";
-import { FaAward, FaBookReader } from "react-icons/fa";
+import { FaChartLine, FaGraduationCap } from "react-icons/fa";
 
 const About = () => {
   return (
@@ -25,44 +24,44 @@ const About = () => {
         <div className={s.text}>
           <div className={s.education}>
             <div className={s.box}>
-              <FaAward />
+              <FaChartLine />
               <h3>Experience</h3>
               <p>2+ years</p>
-              <p>Frontend Development</p>
+              <p>Data Analysis</p>
             </div>
             <div className={s.box}>
-              <FaBookReader />
+              <FaGraduationCap />
               <h3>Education</h3>
-              <p>B.Sc. Bachelor's Degree</p>
+              <p>Applied Mathematics & Computer Science</p>
               <p>M.Sc. Master's Degree</p>
             </div>
           </div>
           <div className={s.bio}>
-            {" "}
             <motion.p
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2 }}
             >
-              I’m a passionate Frontend Developer focused on creating seamless
-              and dynamic user experiences.
+              I’m a passionate Data Analyst specializing in transforming raw
+              data into clear, actionable insights.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.2 }}
             >
-              My goal is to build interactive designs that bring products to
-              life.
+              My goal is to use data-driven storytelling to help businesses
+              solve complex problems and make informed decisions.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.4 }}
-              style={{ background: "none" }} // No background for this paragraph
+              style={{ background: "none" }}
             >
-              I believe in the power of collaboration and continuous learning to
-              create impactful web solutions.
+              I believe in the power of continuous learning and leveraging tools
+              like **SQL**, **Python**, and **Tableau** to create impactful
+              solutions.
             </motion.p>
           </div>
         </div>

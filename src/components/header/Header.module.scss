@@ -1,0 +1,279 @@
+/* --- Variables (Optional, but good practice for theming) --- */
+$primary-blue: #3b82f6; // A slightly bolder blue
+$dark-blue: #1e40af;
+$text-dark: #1f2937;
+$text-medium: #4b5563;
+$text-light: #6b7280;
+$background-light: #f0f4f8; // Lighter background for contrast
+$background-dark-gradient-start: #e0e7ed; // Darker gradient start
+$background-dark-gradient-end: #cdd6dd; // Darker gradient end
+
+/* --- Keyframe Animations for Blobs --- */
+@keyframes float {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(20px, 20px) scale(1.1);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes floatReverse {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-20px, -20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+.header {
+  position: relative; // For positioning background blobs
+  padding: 4rem 1rem; // More padding on mobile
+  background: linear-gradient(
+    135deg,
+    $background-dark-gradient-start,
+    $background-dark-gradient-end
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh; // Ensure it takes up a good portion of the viewport
+  overflow: hidden; // Hide overflow from blobs
+}
+
+.container {
+  position: relative; // To ensure content is above blobs
+  z-index: 2; // Keep content on top
+  max-width: 1200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr; // Single column on mobile
+  gap: 3rem; // More space between blocks
+  align-items: center;
+  text-align: center; // Center text on mobile
+
+  @media (min-width: 768px) {
+    // Tablet and larger
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(300px, 1fr)
+    ); // Flexible 2-column layout
+    text-align: left; // Align text left on larger screens
+    gap: 4rem;
+  }
+
+  @media (min-width: 1024px) {
+    // Desktop
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+  }
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; // Slightly more spacing for text elements
+}
+
+.title {
+  font-size: 2.2rem; // Slightly smaller for mobile
+  font-weight: 800; // Bolder title
+  color: $text-dark;
+  line-height: 1.2;
+
+  @media (min-width: 768px) {
+    font-size: 3.2rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 4rem; // Large and impactful on desktop
+  }
+}
+
+.gradientText {
+  background: linear-gradient(
+    45deg,
+    #8bafe1,
+    #1e40af,
+    #3b82f6
+  ); // More vibrant gradient
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  display: inline-block; // Important for gradient to work on span
+}
+
+.subtitle {
+  font-size: 1.8rem; // Slightly larger for mobile
+  color: $text-medium;
+  font-weight: 600; // Bolder subtitle
+
+  @media (min-width: 768px) {
+    font-size: 1.6rem;
+  }
+}
+
+.description {
+  color: #000;
+  line-height: 1.7;
+  max-width: 600px; // A bit wider for better flow
+  margin-left: auto; // Center on mobile
+  margin-right: auto; // Center on mobile
+  font-size: 1.6rem;
+  line-height: 1.6;
+
+  @media (min-width: 768px) {
+    font-size: 1.6rem; // Increased from 1.1rem for tablets
+    margin-left: 0; // Align left on larger screens
+    margin-right: 0;
+  }
+  @media (min-width: 1024px) {
+    font-size: 1.8rem; // Increased to 1.6rem for desktop
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap; // Allow buttons to wrap on smaller screens
+  justify-content: center; // Center buttons on mobile
+  gap: 1rem;
+  margin-top: 1.5rem;
+  font-size: 1.6rem;
+
+  @media (min-width: 768px) {
+    justify-content: flex-start; // Align buttons left on larger screens
+  }
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem; // Slightly more gap for icon
+  background: #2f66be;
+  color: #fff;
+  padding: 0.9rem 1.5rem; // Larger padding for buttons
+  border-radius: 0.75rem;
+  font-weight: 600; // Bolder text
+  text-decoration: none;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); // Stronger shadow
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease; // Smooth transitions
+
+  &:hover {
+    background: darken($primary-blue, 10%); // Darker on hover
+    transform: translateY(-3px) scale(1.02); // More pronounced lift
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); // Stronger hover shadow
+  }
+
+  svg {
+    font-size: 1.1em; // Slightly larger icons
+  }
+}
+
+.imageBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem; // Push image down on mobile for better flow
+
+  @media (min-width: 768px) {
+    margin-top: 0; // Reset margin on larger screens
+  }
+}
+
+.profileImg {
+  width: 200px; // Smaller on mobile
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); // More prominent shadow
+  // Removed explicit white border for a cleaner look
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.03); // Slight zoom on hover
+  }
+
+  @media (min-width: 768px) {
+    width: 280px;
+    height: 280px;
+  }
+  @media (min-width: 1024px) {
+    width: 350px; // Larger on desktop
+    height: 350px;
+  }
+}
+
+/* --- Background Shapes (Blobs) --- */
+.bgShapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; // Important to contain blobs
+  pointer-events: none; // Allow clicks on content below
+
+  div {
+    position: absolute;
+    background: rgba($primary-blue, 0.1); // Lighter, more subtle blue
+    border-radius: 50%;
+    filter: blur(80px); // Stronger blur
+    opacity: 0.6; // More translucent
+    animation: float 15s ease-in-out infinite alternate; // Main animation
+    z-index: 1; // Below content
+  }
+}
+
+.blob1 {
+  width: 300px;
+  height: 300px;
+  top: -50px;
+  left: -50px;
+  background: rgba(#66a3ff, 0.15); // A slightly different color blob
+}
+
+.blob2 {
+  width: 400px;
+  height: 400px;
+  bottom: -100px;
+  right: -100px;
+  background: rgba(#8ed1fc, 0.12); // Another color blob
+  animation: floatReverse 18s ease-in-out infinite alternate; // Different animation
+}
+
+.blob3 {
+  // New blob for more depth
+  width: 250px;
+  height: 250px;
+  top: 60%;
+  left: 10%;
+  background: rgba(#a8d8e6, 0.1);
+  animation: float 12s ease-in-out infinite alternate-reverse; // Different animation
+  display: none; // Hidden on mobile
+
+  @media (min-width: 768px) {
+    display: block; // Show on larger screens
+  }
+}
+
+// Optional: Add a subtle background texture (e.g., noise/grain)
+// .header::before {
+//   content: '';
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   background: url('/path/to/subtle-noise-texture.png') repeat; // Create a small, subtle noise image
+//   opacity: 0.05; // Very subtle
+//   z-index: 0;
+//   pointer-events: none;
+// }

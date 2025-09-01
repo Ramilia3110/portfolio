@@ -16,7 +16,13 @@ const Navbar = () => {
   const handleToggle = () => setIsMobile((prev) => !prev);
 
   const handleScroll = () => {
-    const sections = ["#homepage", "#about", "#portfolio", "#skills", "#services"];
+    const sections = [
+      "#homepage",
+      "#about",
+      "#portfolio",
+      "#skills",
+      "#services",
+    ];
     const scrollPosition = window.scrollY + 100; // Offset for navbar height
 
     sections.forEach((section) => {
@@ -48,7 +54,7 @@ const Navbar = () => {
     >
       <div className={s.container}>
         <div className={s.logo}>
-          <h1>Ramilia's Portfolio</h1>
+          <h1>RI</h1>
         </div>
         <div className={`${s.links} ${isMobile ? s.mobile : ""}`}>
           {[

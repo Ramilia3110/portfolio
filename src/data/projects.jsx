@@ -1,57 +1,32 @@
 import p1 from "./../assets/p1.jpg";
-import p2 from "./../assets/p2.png";
-import p4 from "./../assets/p4.png";
+import p2 from "./../assets/p2.jpg";
+
 import p3 from "./../assets/p3.jpg";
-import p5 from "./../assets/p5.png";
+
 export const projects = [
   {
     id: 1,
-    title: "Candies Shop",
+    title: "📊 Grocery Sales Performance Analysis",
     description:
-      "An e-commerce website utilizing React JS, Redux, and Firebase offers a powerful, real-time, and scalable solution for managing products, user data, and transactions, enhancing the shopping experience for customers. ",
-    url: "https://candies-shop-8b353.web.app",
-    img: p2,
+      "This project analyzes grocery sales data using Excel with a strong focus on statistical analysis, business insights, and visual storytelling. The goal is to uncover key drivers of sales and performance across outlets, product categories, and customer preferences.",
+    url: "https://github.com/Ramilia3110/grocery-sales-analysis",
+    img: p1,
   },
 
   {
     id: 2,
-    title: "Job Search App",
+    title: "Logistics Performance Analysis:",
     description:
-      "The Job Search app is a a responsive platform that allows users to search and filter jobs by criteria like title, company, location, type, and level, using React, Redux, Tailwind CSS, and Framer Motion for seamless animations",
-    url: "https://jobsearchappjobs.netlify.app/",
-    img: p5,
+      "This project explores delivery performance for a fictional logistics startup based in Bishkek, using MySQL for data analysis and Tableau for visual storytelling.",
+    url: "https://github.com/Ramilia3110/logistics-performance-sql-tableau",
+    img: p2,
   },
   {
     id: 3,
-    title: "Barcozy",
+    title: "🎬 How Netflix Conquered the Global Entertainment Industry",
     description:
-      "The cocktail search app is a React-based application that utilizes Axios for fetching cocktail data with query parameters, enhanced by Framer Motion animations for a smooth user experience. ",
-    url: "https://barcozy.netlify.app/",
-    img: p4,
-  },
-  {
-    id: 4,
-    title: "Journey Makers",
-    description:
-      "A travel agency website developed using React JS, SCSS, and TypeScript combines modern web technologies to deliver a professional and interactive user experience, ensuring a seamless and visually appealing platform for travelers.",
-    url: "https://journeymakers.netlify.app",
-    img: p1,
-  },
-  {
-    id: 5,
-    title: "Uncle Meal",
-    description:
-      "A restaurant website built with React JS and TypeScript provides a dynamic and responsive platform for showcasing your menu and attracting customers. ",
-    url: "https://uncle-meal.netlify.app",
+      "From a DVD rental company in the early 2000s to a powerhouse in the global streaming market, Netflix has radically transformed how the world watches entertainment.This project uses real data to explore Netflix’s growth journey ",
+    url: "https://github.com/Ramilia3110/netflix_analysis",
     img: p3,
   },
-
-  // {
-  //   id: 4,
-  //   title: "Cooked Booked",
-  //   description:
-  //     "A recipe book application developed using React JS and Redux Toolkit provides an interactive and efficient platform for users to store, organize, and explore a wide variety of recipes. This technology stack enables seamless state management, enhancing the user experien",
-  //   url: "https://main--cooked-booked.netlify.app",
-  //   img: p2,
-  // },
 ];

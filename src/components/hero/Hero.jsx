@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-
 import { motion } from "framer-motion";
 import s from "./Hero.module.scss";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { MdOutlineTableChart, MdPercent } from "react-icons/md";
 import { AiOutlineLineChart } from "react-icons/ai";
 import { BiBarChartSquare, BiNetworkChart } from "react-icons/bi";
@@ -11,10 +10,29 @@ import { TbArrowsDoubleSwNe } from "react-icons/tb";
 import { IoDocumentOutline } from "react-icons/io5";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import { Chart as ChartJs, defaults } from "chart.js/auto";
-import { Line, Doughnut, Bar } from "react-chartjs-2";
-import doneProjects from "../../data/doneProjects";
-import services from "../../data/services";
+import { Line, Doughnut, Bar, Radar } from "react-chartjs-2";
 import { useInView } from "react-intersection-observer";
+
+// New Data Objects for a Data Analyst Portfolio
+const projectTypes = [
+  { label: "Predictive Models", count: 4 },
+  { label: "Dashboarding", count: 7 },
+  { label: "ETL Pipelines", count: 3 },
+];
+
+const skillProficiency = [
+  { skill: "SQL", proficiency: 90 },
+  { skill: "Python", proficiency: 85 },
+  { skill: "Tableau", proficiency: 80 },
+  { skill: "Excel", proficiency: 95 },
+  { skill: "Pwer BI", proficiency: 85 },
+];
+
+const projectTechStack = [
+  { stack: "Python", value: 50 },
+  { stack: "SQL", value: 35 },
+  { stack: "Tableau", value: 15 },
+];
 
 defaults.maintainAspectRatio = false;
 defaults.responsive = true;
@@ -22,7 +40,6 @@ defaults.responsive = true;
 const Hero = () => {
   const [scrolled, setScrolled] = useState(false);
 
-  // Intersection Observer for chart visibility
   const { ref: barRef, inView: barInView } = useInView({
     triggerOnce: true,
     threshold: 0.5,
@@ -37,14 +54,14 @@ const Hero = () => {
     triggerOnce: true,
     threshold: 0.5,
   });
+  const { ref: radarRef, inView: radarInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -57,40 +74,13 @@ const Hero = () => {
   const chartOptions = {
     responsive: true,
     animation: {
-      duration: 1000, // Duration of the animation when it is triggered
+      duration: 1000,
       easing: "easeInOutQuad",
     },
-    // hover: {
-    //   onHover: function (e) {
-    //     const chart = this;
-    //     const activePoints = chart.getElementsAtEventForMode(e, "nearest", {
-    //       intersect: true,
-    //     });
-    //     if (activePoints.length > 0) {
-    //       // Change background color on hover
-    //       const index = activePoints[0].index;
-    //       chart.data.datasets[0].backgroundColor = [
-    //         "#FF5733", // Highlight color on hover
-    //         "#FF8C00",
-    //         "#DAF7A6",
-    //       ];
-    //       chart.update();
-    //     } else {
-    //       chart.data.datasets[0].backgroundColor = [
-    //         "#2c4597",
-    //         "#977e2c",
-    //         "#4665c9",
-    //       ];
-    //       chart.update();
-    //     }
-    //   },
-    // },
-  };
-  const downloadCV = () => {
-    const link = document.createElement("a");
-    link.href = "/assets/CV.pdf"; // Update this path to your CV file
-    link.download = "Ramilia_Imankulova_CV.pdf";
-    link.click();
+    plugins: {
+      legend: { display: false },
+      tooltip: { enabled: false },
+    },
   };
 
   return (
@@ -115,141 +105,141 @@ const Hero = () => {
             ))}
           </div>
           <div className={s.screen}>
-            {/* Bar Chart */}
+            {/* Project Types - Bar Chart */}
             <div
               ref={barRef}
-              className={`${s.screen1} chart ${barInView ? s.animate : ""}`}
+              className={`${s.screen1} ${s.chart} ${
+                barInView ? s.animate : ""
+              }`}
             >
+              <h4 className={s.chartTitle}>Project Types</h4>
               {barInView && (
                 <Bar
                   data={{
-                    labels: services.map((data) => data.label),
+                    labels: projectTypes.map((data) => data.label),
                     datasets: [
                       {
-                        label: "Count",
-                        data: services.map((data) => data.value),
+                        label: "Projects",
+                        data: projectTypes.map((data) => data.count),
                         backgroundColor: ["#3943b7", "#eaba6b", "#4665c9"],
+                        borderRadius: 5,
                       },
                     ],
                   }}
-                  options={chartOptions}
+                  options={{
+                    ...chartOptions,
+                    scales: {
+                      x: { display: true, grid: { display: false } },
+                      y: { display: true, grid: { display: false } },
+                    },
+                  }}
                 />
               )}
             </div>
 
-            {/* Line Chart */}
+            {/* Project Timeline - Line Chart */}
             <div
               ref={lineRef}
-              className={`${s.screen2} chart ${lineInView ? s.animate : ""}`}
+              className={`${s.screen2} ${s.chart} ${
+                lineInView ? s.animate : ""
+              }`}
             >
+              <h4 className={s.chartTitle}>Project Timeline</h4>
               {lineInView && (
                 <Line
                   data={{
-                    labels: doneProjects.map((data) => data.label),
+                    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
                     datasets: [
                       {
-                        label: "Projects",
-                        data: doneProjects.map((data) => data.projects),
+                        label: "Completed Projects",
+                        data: [1, 2, 4, 3, 5, 7],
                         backgroundColor: "#27445D",
-                        borderColor: "#EFE9D5",
-                      },
-                      {
-                        label: "Completed",
-                        data: doneProjects.map((data) => data.completed),
-                        backgroundColor: "#F4F8D3",
                         borderColor: "#F7CFD8",
+                        tension: 0.4,
+                        pointRadius: 5,
+                        pointHoverRadius: 7,
                       },
                     ],
                   }}
-                  options={chartOptions}
+                  options={{
+                    ...chartOptions,
+                    scales: {
+                      x: { display: true, grid: { display: false } },
+                      y: { display: true, grid: { display: false } },
+                    },
+                  }}
                 />
               )}
             </div>
-            <div className={s.screen3}>
-              {/* Image Section */}
-              <motion.div
-                className={s.hero_img}
-                initial={{ x: 100, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 1, duration: 1.5, ease: "easeInOut" }}
-              />
-            </div>
-            {/* Doughnut Chart */}
+
+            {/* Tech Stack - Doughnut Chart */}
             <div
               ref={doughnutRef}
-              className={`${s.screen4} chart ${
+              className={`${s.screen3} ${s.chart} ${
                 doughnutInView ? s.animate : ""
               }`}
             >
+              <h4 className={s.chartTitle}>Tech Stack Usage</h4>
               {doughnutInView && (
                 <Doughnut
                   data={{
-                    labels: [
-                      "Customer Satisfaction",
-                      "New Ideas",
-                      "Team Engagement",
-                    ],
+                    labels: projectTechStack.map((data) => data.stack),
                     datasets: [
                       {
-                        label: "Impact Areas",
-                        data: [45, 25, 30], // You can adjust these percentages
+                        label: "Percentage",
+                        data: projectTechStack.map((data) => data.value),
                         backgroundColor: ["#bb9455", "#6b9bea", "#eaba6b"],
                         borderColor: "transparent",
                       },
                     ],
                   }}
-                  options={chartOptions}
+                  options={{ ...chartOptions, cutout: "60%" }}
+                />
+              )}
+            </div>
+
+            {/* Skill Proficiency - Radar Chart (New) */}
+            <div
+              ref={radarRef}
+              className={`${s.screen4} ${s.chart} ${
+                radarInView ? s.animate : ""
+              }`}
+            >
+              <h4 className={s.chartTitle}>Skills Proficiency</h4>
+              {radarInView && (
+                <Radar
+                  data={{
+                    labels: skillProficiency.map((data) => data.skill),
+                    datasets: [
+                      {
+                        label: "Proficiency (%)",
+                        data: skillProficiency.map((data) => data.proficiency),
+                        backgroundColor: "rgba(59, 130, 246, 0.2)",
+                        borderColor: "#3b82f6",
+                        borderWidth: 2,
+                        pointBackgroundColor: "#3b82f6",
+                      },
+                    ],
+                  }}
+                  options={{
+                    ...chartOptions,
+                    scales: {
+                      r: {
+                        angleLines: { color: "#ddd" },
+                        grid: { color: "#ddd" },
+                        pointLabels: { font: { size: 12 } },
+                        suggestedMin: 0,
+                        suggestedMax: 100,
+                        ticks: { display: false },
+                      },
+                    },
+                  }}
                 />
               )}
             </div>
           </div>
         </div>
       </div>
-      <motion.div
-        className={s.hero}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5, ease: "easeInOut" }}
-      >
-        <div className={s.hero_text}>
-          <h3>Hello, I'm</h3>
-          <h1>Ramilia Imankulova</h1>
-          <h5>Frontend Developer</h5>
-          <p>
-            I'm passionate about building beautiful, responsive, and dynamic web
-            applications.
-          </p>
-          <motion.button
-            className={s.downloadCV}
-            onClick={downloadCV}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Download CV
-          </motion.button>
-        </div>
-
-        <div className={s.social}>
-          <motion.a
-            href="https://github.com/Ramilia3110"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <FaGithub />
-          </motion.a>
-          <motion.a
-            href="https://www.linkedin.com/in/ramilia-imankulova-88825415b/"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <FaLinkedinIn />
-          </motion.a>
-        </div>
-      </motion.div>
     </>
   );
 };

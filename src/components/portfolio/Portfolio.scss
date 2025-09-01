@@ -14,12 +14,14 @@
     padding-top: 4rem;
     text-align: center;
     font-size: 3.5rem;
-    color: #ff6347;
+    color: #bc790e;
     background-color: transparent;
     width: 50%;
     margin: 0 auto;
     border-radius: 10rem;
-    will-change: background-color, transform;
+    will-change: background-color, transform, color;
+    transition: background-color 0.5s ease, color 0.5s ease,
+      box-shadow 0.5s ease;
 
     &.scrolled {
       background-color: rgba(49, 120, 198, 0.8);
@@ -34,9 +36,14 @@
     }
   }
 
+  .progressBar {
+    height: 0.5rem;
+    background-color: #bc790e;
+  }
+
   .container {
     width: 100%;
-    height: auto;
+    height: auto; // Let content define height
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -51,28 +58,34 @@
   .wrapper {
     padding: 10rem 0;
     max-width: 1366px;
-    height: auto;
+    // Removed fixed height, letting flex items stretch
     margin: auto;
     display: flex;
     gap: 3rem;
-
-    align-items: center;
+    align-items: stretch; // This is key for equal height
     justify-content: center;
 
     @include mobile {
       padding: 2rem 0;
       flex-direction: column;
       gap: 2rem;
+      align-items: center; // Center items when stacked
     }
 
     .portfolio-img {
       flex: 1;
       border-radius: 2rem;
-      height: auto;
-      max-width: 100%;
+      // Removed fixed height, will stretch with textContainer
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center; // Center image vertically
+      max-height: 500px; // Cap max height to prevent excessively tall images
+
       img {
+        width: 100%;
+        height: 100%; // Make image fill its container's height
         object-fit: cover;
-        object-position: top;
         border-radius: 1rem;
         box-shadow: 15px 15px 55px rgba($color: #000000, $alpha: 0.25),
           10px 10px 70px rgba($color: #000000, $alpha: 0.25),
@@ -83,7 +96,8 @@
 
       @include mobile {
         width: 100%;
-        max-height: 30rem;
+        height: 250px; // A more reasonable height for mobile images
+
         img {
           object-fit: contain;
         }
@@ -94,35 +108,36 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 3rem;
+      gap: 2rem; // Slightly reduced gap for better flow
+      justify-content: center; // Vertically center content if there's extra space
+      padding: 2rem; // Add some padding inside the text container
 
       @include mobile {
-        gap: 2rem;
+        gap: 1.5rem; // Further reduce gap on mobile
         padding: 1rem;
         align-items: center;
+        text-align: center; // Center text on mobile
       }
 
       h2 {
-        font-size: 7.2rem;
+        font-size: 5rem; // Reduced title size
 
         @include mobile {
-          font-size: 3.8rem;
-          text-align: center;
+          font-size: 3rem; // Further reduced on mobile
         }
       }
 
       p {
         color: rgb(17, 16, 16);
-        font-size: 2rem;
+        font-size: 1.8rem; // Slightly reduced paragraph font size
 
         @include mobile {
-          font-size: 1.6rem;
-          text-align: center;
+          font-size: 1.4rem; // Adjusted for mobile
         }
       }
 
       button {
-        background-color: #ff6347;
+        background-color: #bc790e;
         border: none;
         border-radius: 1rem;
         padding: 1rem;
@@ -134,7 +149,11 @@
         cursor: pointer;
         outline: none;
         &:hover {
-          background-color: #c03b24;
+          background-color: #bc790e;
+        }
+        a {
+          text-decoration: none;
+          color: inherit;
         }
         @include mobile {
           max-width: 100%;

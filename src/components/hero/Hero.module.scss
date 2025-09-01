@@ -1,397 +1,148 @@
-@import "../../scss/vars";
-@import "../../scss/mixin";
+/* ==================================== */
+/* =========== CORE LAYOUT ============ */
+/* ==================================== */
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  perspective: 80vw;
+  padding: 2rem 1rem;
+  background-color: #f5f4f9;
+  min-height: 100vh;
+  perspective: 2000px; /* Stronger perspective for a 3D effect */
+  overflow: hidden;
 }
 
 .tablet {
-  background-color: #31393c;
-  width: 70vw;
-  height: 80vh;
-  border-radius: 0.9rem;
+  /* Use relative positioning to contain the screen and panel */
   position: relative;
+  background-color: #1f2937;
+  width: 80vw; /* Increased tablet width */
+  height: 85vh;
+  border-radius: 20px;
   transform: rotateX(60deg) rotateZ(0deg);
-  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
-  transition: transform 1s ease-in-out;
-
-  // &:hover {
-  //   transform: rotateX(0deg) rotateZ(0deg);
-
-  //   .screen1,
-  //   .screen3 {
-  //     top: 0;
-  //   }
-  //   .screen1,
-  //   .screen2 {
-  //     left: 0;
-  //     height: 50%;
-  //   }
-  //   .screen2,
-  //   .screen4 {
-  //     top: 50%;
-  //   }
-  //   .screen3,
-  //   .screen4 {
-  //     right: 0;
-  //     height: 50%;
-  //   }
-  // }
+  box-shadow: 0px 40px 80px rgba(0, 0, 0, 0.5);
+  transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
   &.scrolled {
     transform: rotateX(0deg) rotateZ(0deg);
+  }
 
-    .screen1,
-    .screen3 {
-      top: 0;
-    }
-
-    .screen1,
-    .screen2 {
-      left: 0;
-      height: 50%;
-    }
-
-    .screen2,
-    .screen4 {
-      top: 50%;
-    }
-
-    .screen3,
-    .screen4 {
-      right: 0;
-      height: 50%;
-    }
+  @media (max-width: 1024px) {
+    width: 90vw;
+    height: 70vh;
+  }
+  @media (max-width: 768px) {
+    /* Mobile-specific styles */
+    transform: none;
+    width: 95vw;
+    height: auto;
+    background-color: transparent;
+    box-shadow: none;
   }
 }
 
 .panel {
   position: absolute;
-  top: 5%;
-  height: 100%;
-  width: 5%;
-  border-radius: 0.9rem;
+  top: 3%;
+  left: 3%;
+  height: 94%;
+  width: 4%;
+  background-color: #2c3543;
+  border-radius: 15px;
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
   color: #fff;
-}
-.panel span {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+
+  span {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    opacity: 0.6;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .screen {
-  position: relative;
-  width: 93%;
-  height: 95%;
-  background-color: #150578;
-  margin: 2%;
-  margin-left: 5%;
-
+  /* Position the screen inside the tablet frame */
+  position: absolute;
+  top: 3%;
+  left: 7%;
+  width: 90%;
+  height: 94%;
+  background-color: #f5f4f9;
+  border-radius: 15px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-}
+  justify-content: space-around;
+  align-items: stretch;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  overflow-y: auto;
 
-.screen1,
-.screen2 {
-  position: absolute;
-  width: 60%;
-  height: 50%;
-  background-color: rgba(#150578, 0.8);
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-  transform: translateZ(80px);
-}
-
-.screen3,
-.screen4 {
-  background-color: rgba(#150578, 0.8);
-  position: absolute;
-  width: 38%;
-  height: 50%;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* Positioning screens inside the panel */
-.screen1 {
-  top: -18%;
-  left: -8%;
-}
-
-.screen2 {
-  top: 45%;
-  left: -8%;
-}
-
-.screen3 {
-  top: -18%;
-  right: -8%;
-}
-
-.screen4 {
-  top: 45%;
-  right: -8%;
+  @media (max-width: 768px) {
+    /* Remove absolute positioning for mobile */
+    position: static;
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    padding: 1rem;
+    flex-direction: column; /* Stacks charts vertically */
+  }
 }
 
 .chart {
   opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 1s ease-in-out;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex: 1 1 45%; /* Makes charts responsive and adaptive */
+  min-height: 250px; /* Prevents charts from becoming too small */
 
   &.animate {
     opacity: 1;
   }
-}
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .tablet {
-  display: none;
+  .chartTitle {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 0.9rem;
+    color: #4b5563;
+    font-weight: 600;
+  }
 
-  
-}
-.screen3 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.animate {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 1s ease-out, transform 1s ease-out;
-}
-
-.chart {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.5s ease-in, transform 0.5s ease-in;
-}
-
-.chart canvas {
-  transition: transform 0.2s ease-in-out;
-}
-
-.content {
-  color: map-get($colors, "secondary");
-}
-
-.hero_img {
-  width: 20rem;
-  height: 20rem;
-
-  background: url("../../assets/hero.png") center / cover no-repeat;
-  background-color: #2c1d85;
-  border-radius: 50%;
-  animation: morph 4s ease-in-out infinite, fadeInUp 2.5s ease-out;
-
-  @media (min-width: 768px) {
-    width: 25rem;
-    height: 25rem;
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+    margin-top: 1rem;
   }
 
   @media (max-width: 768px) {
-    width: 18rem;
-    height: 18rem;
-  }
-
-  .title {
-    font-size: 5rem;
-  }
-
-  .text {
-    font-size: 2.5rem;
-    width: 60vw;
-    margin: 0 auto;
-    padding-top: 1rem;
-  }
-}
-
-.hero {
-  width: 90%;
-  margin: 0 auto;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  box-sizing: border-box;
-
-  .hero_text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    animation: fadeInUp 1.5s ease-out;
-
-    h3 {
-      font-size: 2.5rem;
-      color: #3943b7;
-      animation: slideInLeft 2s ease-out;
-    }
-
-    h1 {
-      font-size: 3rem;
-      animation: fadeInUp 2s ease-out;
-    }
-
-    h5 {
-      font-size: 5rem;
-      background: linear-gradient(135deg, #3178c6, #ff6347, #7b5bf1, #3178c6);
-      background-size: 300%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: typing 4s steps(30) 1s 1 normal forwards,
-        cursor 0.6s steps(18) infinite, gradientMove 6s infinite linear;
-      letter-spacing: 0.1rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-align: center;
-    }
-
-    p {
-      font-size: 1.8rem;
-
-      margin: 0 auto;
-      animation: fadeInUp 2s ease-out;
-    }
-
-    @media (max-width: 768px) {
-      text-align: center;
-      align-items: center;
-
-      h3 {
-        font-size: 1.8rem;
-      }
-
-      h1 {
-        font-size: 2.5rem;
-      }
-
-      h5 {
-        font-size: 3rem;
-      }
-
-      p {
-        font-size: 1.5rem;
-      }
-    }
-  }
-
-  .downloadCV {
-    padding: 1.5rem 2rem;
-    background: #3943b7;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.6rem;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    animation: fadeInUp 2.5s ease-out;
-    max-width: 30rem;
-
-    &:hover {
-      background: #285e8e;
-    }
-  }
-
-  .social {
-    display: flex;
-
-    gap: 1rem;
-    animation: fadeInUp 2.5s ease-out;
-
-    a {
-      font-size: 3rem;
-      color: #333;
-      transition: color 0.3s ease;
-
-      &:hover {
-        color: #0077b5;
-      }
-    }
-  }
-}
-/* Typing Animation */
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-/* Cursor Animation */
-@keyframes cursor {
-  50% {
-    border-color: transparent;
-  }
-}
-
-/* Fade-In Effect */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* Fade-In Up Effect */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Slide-In Left Effect */
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Morphing Animation for Hero Image */
-@keyframes morph {
-  0%,
-  100% {
-    border-radius: 50%;
-  }
-  50% {
-    border-radius: 30%;
-  }
-}
-
-@keyframes gradientMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
+    flex-basis: 100%; /* Charts stack vertically on mobile */
   }
 }

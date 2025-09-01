@@ -12,11 +12,11 @@
     font-size: 4rem;
     padding: 5rem;
     text-align: center;
-
-    color: #3943b7;
+    color: #191919;
 
     @media (max-width: 768px) {
       font-size: 3rem;
+      padding: 3rem 0;
     }
   }
 }
@@ -39,7 +39,6 @@
 
 .service_card {
   padding: 3rem;
-
   border-radius: 1.5rem;
   text-align: center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
@@ -49,12 +48,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
   @media (max-width: 600px) {
     flex: 1 1 90%;
   }
+
   &:hover {
     transform: translateY(-15px) scale(1.05);
-    background: #3943b7;
+    background: #2f66be;
     color: #fff;
   }
 
@@ -80,14 +81,13 @@
     font-size: 1.8rem;
     opacity: 0.8;
     transition: opacity 0.4s ease, transform 0.4s ease;
-
     min-height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    text-align: center;
     margin: 0 auto;
+
     &:hover {
       opacity: 1;
       transform: translateY(-5px);
@@ -96,27 +96,7 @@
     @media (max-width: 768px) {
       font-size: 1.6rem;
       min-height: 60px;
-      width: 35rem;
-    }
-  }
-
-  .cta_button {
-    margin-top: 1rem;
-    padding: 0.8rem 2rem;
-    border: none;
-    border-radius: 50px;
-    background: #ffffff;
-    color: #3178c6;
-    font-weight: 600;
-    font-size: 1.5rem;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, background 0.3s ease;
-
-    &:hover {
-      transform: translateY(-5px);
-      background: #bc790e;
-      color: #ffffff;
+      width: auto; /* Remove fixed width to allow wrapping */
     }
   }
 }

@@ -1,36 +1,37 @@
-import React from "react";
 import s from "./Services.module.scss";
 import {
-  FaLaptopCode,
-  FaMobileAlt,
-  FaPaintBrush,
-  FaRocket,
+  FaDatabase,
+  FaChartLine,
+  FaChartBar,
+  FaTachometerAlt,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const Services = () => {
   const services = [
     {
-      icon: <FaLaptopCode />,
-      title: "Web Development",
-      description: "Building fast, responsive, and scalable web applications.",
-    },
-    {
-      icon: <FaMobileAlt />,
-      title: "Responsive Design",
+      icon: <FaDatabase />,
+      title: "Data Cleaning & Preprocessing",
       description:
-        "Ensuring applications work on every device, screen size, and browser.",
+        "Transforming raw, messy data into a clean, usable format for accurate analysis.",
     },
     {
-      icon: <FaPaintBrush />,
-      title: "UI/UX Design",
-      description: "Crafting user-centric and beautiful designs using Figma.",
-    },
-    {
-      icon: <FaRocket />,
-      title: "Performance Optimization",
+      icon: <FaChartLine />,
+      title: "Predictive Modeling",
       description:
-        "Making applications load faster and improving user experience.",
+        "Building machine learning models to forecast future trends and outcomes.",
+    },
+    {
+      icon: <FaChartBar />,
+      title: "Data Visualization & Reporting",
+      description:
+        "Creating compelling visualizations and reports that turn complex data into actionable insights.",
+    },
+    {
+      icon: <FaTachometerAlt />,
+      title: "BI Dashboarding",
+      description:
+        "Developing interactive business intelligence dashboards for real-time performance tracking and monitoring.",
     },
   ];
 
@@ -56,13 +57,6 @@ const Services = () => {
             </motion.div>
             <h3 className={s.service_title}>{service.title}</h3>
             <p className={s.description}>{service.description}</p>
-            <motion.button
-              className={s.cta_button}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Learn More
-            </motion.button>
           </motion.div>
         ))}
       </div>

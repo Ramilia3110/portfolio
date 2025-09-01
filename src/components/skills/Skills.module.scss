@@ -18,12 +18,19 @@
     text-align: center;
     margin-bottom: 2rem;
     color: #2d3748;
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding-top: 3rem;
   }
 }
 
 .hardSkills,
 .softSkills {
   flex: 1;
+  min-width: 300px;
 }
 
 .skillsGrid {
@@ -35,17 +42,12 @@
 
 /* Hard Skills - Progress Bars */
 .skill {
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.9
-  ); /* Slight transparency for cards */
+  background-color: rgba(255, 255, 255, 0.9);
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1),
     inset 0 2px 5px rgba(255, 255, 255, 0.5),
-    /* Inner light for 3D effect */ inset -2px -2px 4px rgba(0, 0, 0, 0.2); /* Dark inner shadow */
+    inset -2px -2px 4px rgba(0, 0, 0, 0.2);
   text-align: center;
   position: relative;
   transition: transform 0.3s ease-in-out;
@@ -61,25 +63,25 @@
   }
 
   .progressBarContainer {
-    background-color: rgba(226, 232, 240, 0.8); /* Transparent container */
+    background-color: rgba(226, 232, 240, 0.8);
     border-radius: 20px;
     overflow: hidden;
     height: 10px;
     margin-bottom: 1rem;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1),
-      inset 0 -1px 3px rgba(255, 255, 255, 0.7); /* Inner light shadow */
+      inset 0 -1px 3px rgba(255, 255, 255, 0.7);
   }
 
   .progressBar {
     height: 100%;
     background-image: linear-gradient(
       90deg,
-      rgba(#3943b7, 0.8),
-      rgba(#4c55be, 0.6)
+      rgba(#2f66be, 0.8),
+      rgba(#477cd2, 0.6)
     );
     border-radius: 20px;
     box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.3),
-      /* Light inner shadow */ inset 0 -1px 3px rgba(0, 0, 0, 0.3); /* Dark inner shadow */
+      inset 0 -1px 3px rgba(0, 0, 0, 0.3);
   }
 
   span {
@@ -91,8 +93,18 @@
 }
 
 /* Soft Skills - Animated Circles */
+.softSkills {
+  .skillsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    justify-content: center;
+  }
+}
 .skillCircle {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   h4 {
     margin-top: 1.5rem;
@@ -101,13 +113,13 @@
   }
 
   .circle {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     background-image: conic-gradient(
-      rgba(#252a7e, 0.9),
-      rgba(#393fb7, 1),
-      rgba(#393fb7, 0.7)
+      rgba(#234c8d, 0.9),
+      rgba(#426eb5, 1),
+      rgba(#2f66be, 0.7)
     );
     display: flex;
     justify-content: center;
@@ -119,14 +131,10 @@
     color: #fff;
     font-weight: bold;
     transition: transform 0.5s ease-in-out;
+    cursor: pointer;
 
     &:hover {
       transform: scale(1.1);
-    }
-
-    span {
-      position: relative;
-      z-index: 1;
     }
   }
 }
